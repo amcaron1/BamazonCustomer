@@ -1,0 +1,25 @@
+{
+  "name": "bamazoncustomer",
+  "version": "1.0.0",
+  "description": "\"Displays products from database and updates database when customer orders item\"",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amcaron1/BamazonCustomer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amcaron1/BamazonCustomer/issues"
+  },
+  "homepage": "https://github.com/amcaron1/BamazonCustomer#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1"
+  }
+}

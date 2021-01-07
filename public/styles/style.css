@@ -1,0 +1,94 @@
+.floatRight {
+    float: right;
+}
+
+th, td {
+    padding-right: 10px;
+    padding-bottom: 5px;
+}
+
+th {
+    line-height: 30px;
+}
+
+h1 {
+    color: #cc0000;
+}
+
+h3 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/*Clears the floatRight*/
+.floatFix:after {
+    clear: both;
+    content: "";
+    display: block;
+}
+
+.price, .cost {
+    text-align: center;
+}
+
+.center-header {
+    text-align: center;
+}
+
+table {
+    margin: 0 auto;
+}
+
+img {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.pic {
+    width: 100%;
+    margin-top: 50px;
+    border-top: 5px solid #198754;
+    border-bottom: 15px double #198754;
+}
+
+#close-button {
+    width: 25%;
+    margin: 0 auto;
+    margin-top: 25px;
+}
+
+.modal-content {
+    margin: auto;
+    width: 40%;
+    height: 25%;
+    top: 200px;
+    text-align: center;
+    border: 5px solid #198754;
+}
+
+.center-button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+button {
+    font-size: 24px;
+    background-color: white;
+    color: #cc0000;
+    border-radius: 5px;
+    border-color: #cc0000;
+}
+
+.hidden {
+    display: none;
+}
+
+.totalHeading {
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+.totalLine {
+    border-top: solid 2px;
+    margin-top: 50px;
+}
