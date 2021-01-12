@@ -1,3 +1,5 @@
+//  Loads environment variables from a .env file into process.env
+require('dotenv').config()
 // express handles web requests (GET, POST, etc)
 var express = require("express");
 // During execution, morgan logs requests to bash
@@ -5,7 +7,7 @@ var logger = require("morgan");
 // mysql stores the database
 var mysql = require("mysql");
 
-// Need to update process.env.PORT
+// Initializes PORT
 var PORT = process.env.PORT || 3000;
 
 // Initializes express
@@ -22,12 +24,21 @@ app.use(express.static("public"));
 
 // Sets up the database connection parameters
 var connection = mysql.createConnection({
-    host: "localhost",
-    port: 3306,
-    user: "root",
-    password: "root",
-    database: "bamazon_db"
+    host: process.env.dbHost,
+    port: process.env.dbPort,
+    user: process.env.dbUser,
+    password: process.env.dbPassword,
+    database: process.env.dbDatabase
 });
+
+// Sets up the database connection parameters
+//var connection = mysql.createConnection({
+//    host: "localhost",
+//    port: 3306,
+//    user: "root",
+//    password: "root",
+//    database: "bamazon_db"
+//});
 
 // Sets up the sever
 app.listen(PORT, function () {
