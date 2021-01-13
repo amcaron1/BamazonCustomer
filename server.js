@@ -47,14 +47,20 @@ app.listen(PORT, function () {
 
 // Creates the connection to the database
 connection.connect(function (err) {
-    if (err) throw err;
+    if (err) {
+        console.log("In connection.connect(function (err) {");
+        throw err;
+    }
     console.log("connected as id " + connection.threadId);
 });
 
 // Selects all of the products from the products table 
 app.get("/products", function (req, res) {
     connection.query("SELECT item_id, product_name, price, stock_quantity FROM products", function (err, sql_res) {
-        if (err) throw err;
+        if (err) {
+            console.log('In app.get("/ products"');
+            throw err;
+        }
 
         // Converts the SQL response to JSON
         res.json(sql_res);
@@ -65,11 +71,12 @@ app.get("/products", function (req, res) {
 // The item id can be accessed via "/:id" and req.params.id or req.query.id
 app.get("/product_info/:id", function (req, res) {
     connection.query("SELECT stock_quantity FROM products WHERE item_id = " + req.params.id, function (err, sql_res) {
-  
-    //// Optional way of accessing the item id
-    ////connection.query("SELECT stock_quantity FROM products WHERE item_id =" + req.query.id, function (err, sql_res) {
-        
+
+        //// Optional way of accessing the item id
+        ////connection.query("SELECT stock_quantity FROM products WHERE item_id =" + req.query.id, function (err, sql_res) {
+
         if (err) throw err;
+
         res.json(sql_res);
     })
 }) 
