@@ -23,13 +23,18 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Sets up the database connection parameters
-var connection = mysql.createConnection({
-    host: process.env.dbHost,
-    port: process.env.dbPort,
-    user: process.env.dbUser,
-    password: process.env.dbPassword,
-    database: process.env.dbDatabase
-});
+if (process.env.JAWSDB_URL) {
+    connection = mysql.createConnection(process.env.JAWSDB_URL);
+}
+else {
+    var connection = mysql.createConnection({
+        host: process.env.dbHost,
+        port: process.env.dbPort,
+        user: process.env.dbUser,
+        password: process.env.dbPassword,
+        database: process.env.dbDatabase
+    });
+}
 
 // Sets up the database connection parameters
 //var connection = mysql.createConnection({
@@ -48,7 +53,6 @@ app.listen(PORT, function () {
 // Creates the connection to the database
 connection.connect(function (err) {
     if (err) {
-        console.log("In connection.connect(function (err) {");
         throw err;
     }
     console.log("connected as id " + connection.threadId);
@@ -58,7 +62,6 @@ connection.connect(function (err) {
 app.get("/products", function (req, res) {
     connection.query("SELECT item_id, product_name, price, stock_quantity FROM products", function (err, sql_res) {
         if (err) {
-            console.log('In app.get("/ products"');
             throw err;
         }
 
