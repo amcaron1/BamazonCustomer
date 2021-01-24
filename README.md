@@ -13,11 +13,15 @@
 - Key or new skills
     - HTML
     - CSS
+    - Bootstrap
     - JavaScript
+    - jQuery
+    - Node.js
+    - Express.js
     - MySQL
     
 - Bamazon Links
-    - Deployed: https://
+    - Deployed: https://powerful-chamber-20777.herokuapp.com/
     - GitHub repository: https://github.com/amcaron1/BamazonCustomer/
 
 - Portfolio Links
