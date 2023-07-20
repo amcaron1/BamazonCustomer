@@ -1,11 +1,13 @@
 //  Loads environment variables from a .env file into process.env
 require('dotenv').config()
+const https = require("https");
+const fs = require("fs");
 // express handles web requests (GET, POST, etc)
 var express = require("express");
 // During execution, morgan logs requests to bash
 var logger = require("morgan");
 // mysql stores the database
-var mysql = require("mysql");
+var mysql = require("mysql2");
 
 // Initializes PORT
 var PORT = process.env.PORT || 3000;
@@ -46,9 +48,22 @@ else {
 //});
 
 // Sets up the sever
-app.listen(PORT, function () {
-    console.log("App running on port " + PORT + "!");
-});
+//app.listen(PORT, function () {
+//    console.log("App running on port " + PORT + "!");
+//});
+https
+    .createServer(
+        {
+            key: fs.readFileSync("server.key"),
+            cert: fs.readFileSync("server.crt"),
+        },
+        app
+    )
+    .listen(3000, function () {
+        console.log(
+            "Example app listening on port 3000! Go to https://localhost:3000/"
+        );
+    });
 
 // Creates the connection to the database
 connection.connect(function (err) {
