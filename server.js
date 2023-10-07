@@ -10,7 +10,7 @@ var logger = require("morgan");
 var mysql = require("mysql2");
 
 // Initializes PORT
-var PORT = process.env.PORT || 3000;
+var port = process.env.PORT || 3000;
 
 // Initializes express
 var app = express();
@@ -47,23 +47,23 @@ else {
 //    database: "bamazon_db"
 //});
 
-// Sets up the sever
-//app.listen(PORT, function () {
-//    console.log("App running on port " + PORT + "!");
-//});
-https
-    .createServer(
-        {
-            key: fs.readFileSync("server.key"),
-            cert: fs.readFileSync("server.crt"),
-        },
-        app
-    )
-    .listen(3000, function () {
-        console.log(
-            "Example app listening on port 3000! Go to https://localhost:3000/"
-        );
-    });
+ //sets up the sever
+app.listen(port, function () {
+    console.log("app running on port " + port + "!");
+});
+//https
+//    .createServer(
+//        {
+//            key: fs.readFileSync("server.key"),
+//            cert: fs.readFileSync("server.crt"),
+//        },
+//        app
+//    )
+//    .listen(3000, function () {
+//        console.log(
+//            "Example app listening on port 3000! Go to https://localhost:3000/"
+//        );
+//    });
 
 // Creates the connection to the database
 connection.connect(function (err) {
@@ -75,6 +75,7 @@ connection.connect(function (err) {
 
 // Selects all of the products from the products table 
 app.get("/products", function (req, res) {
+    console.log('displayProductss')
     connection.query("SELECT item_id, product_name, price, stock_quantity FROM products", function (err, sql_res) {
         if (err) {
             throw err;

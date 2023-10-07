@@ -74,8 +74,8 @@ $(document).on("click", ".selectProductButton", function () {
         } else {
       
             // Calculates the cost.  Note that '$ ' and ',' must be stripped from orderPrice.
-            var cost = orderQuantity * orderPrice.slice(2).replace(/,/g, '');
-
+            var cost = orderQuantity * orderPrice.slice(1).replace(/,/g, '');
+            console.log('cost = ' + cost)
             // Appends the product to the cart-table
             $("#cart-table").append("<tr><div><td class='itemID'>" + orderID + "</td><td class='productName'>" + orderName + "</td ><td class='floatFix'><div class='productPrice floatRight'>" + orderPrice + "</div></td><td class='productQuantity'>" + orderQuantity + "</td><td class='floatFix'><div class='floatRight'>" + formatCurrency(cost) + "</div></td></div></tr>");
 
