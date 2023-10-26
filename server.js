@@ -26,9 +26,11 @@ app.use(express.static("public"));
 
 // Sets up the database connection parameters
 if (process.env.JAWSDB_URL) {
+    console.log("True process.env.JAWSDB_URL = " + process.env.JAWSDB_URL)
     connection = mysql.createConnection(process.env.JAWSDB_URL);
 }
 else {
+    console.log("False process.env.JAWSDB_URL = " + process.env.JAWSDB_URL)
     var connection = mysql.createConnection({
         host: process.env.dbHost,
         port: process.env.dbPort,
@@ -75,7 +77,7 @@ connection.connect(function (err) {
 
 // Selects all of the products from the products table 
 app.get("/products", function (req, res) {
-    console.log('displayProductss')
+    console.log('displayProducts')
     connection.query("SELECT item_id, product_name, price, stock_quantity FROM products", function (err, sql_res) {
         if (err) {
             throw err;
