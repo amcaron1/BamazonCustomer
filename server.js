@@ -1,7 +1,5 @@
 //  Loads environment variables from a .env file into process.env
 require('dotenv').config()
-const https = require("https");
-const fs = require("fs");
 // express handles web requests (GET, POST, etc)
 var express = require("express");
 // During execution, morgan logs requests to bash
@@ -26,54 +24,18 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Sets up the database connection parameters
-//if (process.env.JAWSDB_URL) {
-//    console.log("True process.env.JAWSDB_URL = " + process.env.JAWSDB_URL)
-//    connection = mysql.createConnection(process.env.JAWSDB_URL);
-//}
-//else {
-//    console.log("False process.env.JAWSDB_URL = " + process.env.JAWSDB_URL)
-//    var connection = mysql.createConnection({
-//        host: process.env.dbHost,
-//        port: process.env.dbPort,
-//        user: process.env.dbUser,
-//        password: process.env.dbPassword,
-//        database: process.env.dbDatabase
-//    });
-//}
-
-// Sets up the database connection parameters
-//var connection = mysql.createConnection({
-//    host: "database-2.cbygi9axbkk1.us-east-2.rds.amazonaws.com",
-//    database: "bamazon_db",
-//    port: "3306",
-//    user: "admin",
-//    password: "password"
-//});
 var connection = mysql.createConnection({
-    host: "127.0.0.1",
-    database: "bamazon_db",
-    port: "3306",
-    user: "root",
-    password: "root"
+    host: process.env.dbHost,
+    port: process.env.dbPort,
+    user: process.env.dbUser,
+    password: process.env.dbPassword,
+    database: process.env.dbDatabase
 });
 
  //sets up the sever
 app.listen(port, function () {
     console.log("app running on port " + port + "!");
 });
-//https
-//    .createServer(
-//        {
-//            key: fs.readFileSync("server.key"),
-//            cert: fs.readFileSync("server.crt"),
-//        },
-//        app
-//    )
-//    .listen(3000, function () {
-//        console.log(
-//            "Example app listening on port 3000! Go to https://localhost:3000/"
-//        );
-//    });
 
 // Creates the connection to the database
 connection.connect(function (err) {
