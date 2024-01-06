@@ -15,7 +15,7 @@ $(document).ready(function () {
     $("#back-button").hide();
 
     // Displays the products to the user
-    displayProducts();
+    //displayProducts();
 })
 
 // Displays the products to the user
