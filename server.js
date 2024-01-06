@@ -28,7 +28,7 @@ if (process.env.JAWSDB_URL) {
 } else {
     var connection = mysql.createConnection({
         host: process.env.dbHost,
-        port: process.env.PORT,
+        port: process.env.dbPort,
         user: process.env.dbUser,
         password: process.env.dbPassword,
         database: process.env.dbDatabase
