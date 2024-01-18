@@ -44,6 +44,7 @@ app.listen(PORT, function () {
 // Creates the connection to the database
 connection.connect(function (err) {
     if (err) {
+        console.log("Cannot connect to database")
         throw err;
     }
     console.log("connected as id " + connection.threadId);
