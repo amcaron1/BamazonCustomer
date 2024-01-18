@@ -38,7 +38,7 @@ if (process.env.JAWSDB_URL) {
 
  //sets up the sever
 app.listen(PORT, function () {
-    console.log("app running on port " + ${PORT} + "!");
+    console.log(`App running on port ${PORT}`);
 });
 
 // Creates the connection to the database
