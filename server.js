@@ -8,7 +8,7 @@ var logger = require("morgan");
 var mysql = require("mysql2");
 
 // Initializes PORT
-var port = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3000;
 
 // Initializes express
 var app = express();
@@ -37,8 +37,8 @@ if (process.env.JAWSDB_URL) {
 
 
  //sets up the sever
-app.listen(port, function () {
-    console.log("app running on port " + port + "!");
+app.listen(PORT, function () {
+    console.log("app running on port " + ${PORT} + "!");
 });
 
 // Creates the connection to the database
