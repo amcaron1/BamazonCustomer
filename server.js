@@ -26,7 +26,7 @@ app.use(express.static("public"));
 if (process.env.JAWSDB_URL) {
     var connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
-    var connection = mysql.createConnection({
+    var connection = mysql.createPool({
         host: process.env.dbHost,
         port: process.env.dbPort,
         user: process.env.dbUser,
@@ -34,7 +34,6 @@ if (process.env.JAWSDB_URL) {
         database: process.env.dbDatabase
     });
 }
-
 
  //sets up the sever
 app.listen(PORT, function () {
