@@ -47,7 +47,7 @@ connection.connect(function (err) {
         console.log("Cannot connect to database")
         throw err;
     }
-    console.log("connected as id " + connection.threadId);
+    console.log("Connected as id " + connection.threadId);
 });
 
 // Selects all of the products from the products table 
