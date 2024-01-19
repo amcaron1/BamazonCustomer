@@ -24,7 +24,7 @@ app.use(express.static("public"));
 
 // Sets up the database connection parameters
 if (process.env.JAWSDB_URL) {
-    var connection = mysql.createConnection(process.env.JAWSDB_URL);
+    var connection = mysql.createPool(process.env.JAWSDB_URL);
 } else {
     var connection = mysql.createPool({
         host: process.env.dbHost,
@@ -41,13 +41,13 @@ app.listen(PORT, function () {
 });
 
 // Creates the connection to the database
-connection.connect(function (err) {
-    if (err) {
-        console.log("Cannot connect to database")
-        throw err;
-    }
-    console.log("Connected as id " + connection.threadId);
-});
+//connection.connect(function (err) {
+//    if (err) {
+//        console.log("Cannot connect to database")
+//        throw err;
+//    }
+//    console.log("Connected as id " + connection.threadId);
+//});
 
 // Selects all of the products from the products table 
 app.get("/products", function (req, res) {
