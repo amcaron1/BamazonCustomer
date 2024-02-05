@@ -47,6 +47,7 @@ $(document).on("click", ".selectProductButton", function () {
     if (orderQuantity == 0) {
         modalMessage.textContent = "Quantity must be greater than zero.";
         modal.style.display = "block";
+        setTimeout(function () { modal.style.display = "none" }, 3000);
         
     } else {
         
@@ -70,12 +71,14 @@ $(document).on("click", ".selectProductButton", function () {
         if (orderQuantity > parseInt(stockQuantity)) {
             modalMessage.textContent = "Insufficient quantity in stock.";
             modal.style.display = "block";
+            setTimeout(function () { modal.style.display = "none" }, 3000);
 
         } else {
       
             // Calculates the cost.  Note that '$ ' and ',' must be stripped from orderPrice.
             var cost = orderQuantity * orderPrice.slice(1).replace(/,/g, '');
             console.log('cost = ' + cost)
+
             // Appends the product to the cart-table
             $("#cart-table").append("<tr><div><td class='itemID'>" + orderID + "</td><td class='productName'>" + orderName + "</td ><td class='floatFix'><div class='productPrice floatRight'>" + orderPrice + "</div></td><td class='productQuantity'>" + orderQuantity + "</td><td class='floatFix'><div class='floatRight'>" + formatCurrency(cost) + "</div></td></div></tr>");
 
@@ -92,6 +95,7 @@ $(document).on("click", "#cart-button", function () {
     if (productArray.length == 0) {
         modalMessage.textContent = "Cart is empty.";
         modal.style.display = "block";
+        setTimeout(function () { modal.style.display = "none" }, 3000);
 
     } else {
 
@@ -124,6 +128,7 @@ $(document).on("click", "#order-button", function () {
                 // If the order was successful, a modal message is set and displayed
                 modalMessage.textContent = "Thank you for your order.";
                 modal.style.display = "block";
+                setTimeout(function () { modal.style.display = "none" }, 3000);
             }
         })
     }

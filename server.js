@@ -40,15 +40,6 @@ app.listen(PORT, function () {
     console.log(`App running on port ${PORT}`);
 });
 
-// Creates the connection to the database
-//connection.connect(function (err) {
-//    if (err) {
-//        console.log("Cannot connect to database")
-//        throw err;
-//    }
-//    console.log("Connected as id " + connection.threadId);
-//});
-
 // Selects all of the products from the products table 
 app.get("/products", function (req, res) {
     console.log('displayProducts')
